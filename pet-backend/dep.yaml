@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: pet-back
   template:
     metadata:
       labels:
-        app: my-app
+        app: pet-back
     spec:
       containers:
-      - name: my-app
+      - name: pet-backend
         image: barathg25/pet-backend
         ports:
-        - containerPort: 80
+        - containerPort: 9966
 
 ---
 
@@ -24,12 +24,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-app
+  name: backend
 spec:
+  type: NodePort
   selector:
-    app: my-app
+    app: pet-back
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 80
-  type: NodePort
+    port: 8080
+    targetPort: 9966
+    nodePort: 31000  
