@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: barathg25/html
+        image: barathg25/pet-backend
         ports:
         - containerPort: 80
 
