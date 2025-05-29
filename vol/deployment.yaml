@@ -19,7 +19,7 @@ spec:
         - containerPort: 8080
         volumeMounts:
         - name: local-persistent-storage
-          mountPath: /data
+          mountPath: /opt/app
       volumes:
       - name: local-persistent-storage
         persistentVolumeClaim:
