@@ -19,17 +19,4 @@ spec:
           operator: In
           values:
           - master-node
----
-
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: test-pvc
-spec:
-  accessModes:
-  - ReadWriteOnce
-  storageClassName: local-storage
-  resources:
-    requests:
-      storage: 1Gi
 
